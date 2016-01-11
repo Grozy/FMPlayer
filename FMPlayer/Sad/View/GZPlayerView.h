@@ -19,14 +19,16 @@
 
 @interface GZPlayerView : UIWindow
 
-@property (nonatomic, weak) id<GZSongViewDelegate>delegate;
-
 @property (nonatomic, strong) UISlider *slider;
+
+@property (nonatomic, weak) id<GZSongViewDelegate>delegate;
 
 + (instancetype)sharedInstance;
 
 - (void)showInView:(UIView *)view;
 
 - (void)setUp:(id)songItem;
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents;
 
 @end
