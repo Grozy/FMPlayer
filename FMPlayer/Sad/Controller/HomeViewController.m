@@ -49,6 +49,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         pageNumber = 1;
         
         [[GZMusicHelper sharedInstance] addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
+        [[GZPlayerView sharedInstance] addTarget:self action:@selector(openPlayerController:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -92,7 +93,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)addTableViewComplete:(void (^)())completeBlock
 {
-    
     [self.view addSubview:self.tableView];
     
     __weak HomeViewController *homeController = self;
@@ -106,6 +106,14 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     
     if (completeBlock)
         completeBlock();
+}
+
+#pragma mark - event
+- (void)openPlayerController:(id)sender
+{
+    GZMusicPlayerController *controller = [[GZMusicPlayerController alloc] init];
+    [controller updateSongItem:[GZMusicHelper sharedInstance].audioItem];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - load data
@@ -142,7 +150,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         }
         
         [self.playlist addObjectsFromArray: playlist];
-        [[GZMusicHelper sharedInstance] updatePlayList:playlist];
+        [[GZMusicHelper sharedInstance] updatePlayList:self.playlist];
         [self.tableView reloadData];
         !value ? [self.tableView.mj_header endRefreshing]: [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {

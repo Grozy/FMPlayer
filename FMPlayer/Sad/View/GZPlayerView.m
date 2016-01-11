@@ -32,7 +32,6 @@ static GZPlayerView *sharedInstance = nil;
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        
         sharedInstance = [[self alloc] initWithFrame:CGRectZero];
     });
     return sharedInstance;
@@ -153,12 +152,11 @@ static GZPlayerView *sharedInstance = nil;
         [_backgroundView setBackgroundImage:image forState:UIControlStateNormal];
         image = [GZPlayerView createImageWithColor:[UIColor colorWithRGBHex:0xE9E8D2]];
         [_backgroundView setBackgroundImage:image forState:UIControlStateHighlighted];
-        [_backgroundView addTarget:self action:@selector(aa) forControlEvents:UIControlEventTouchUpInside];
     }
     return _backgroundView;
 }
 
-+(UIImage*)createImageWithColor:(UIColor*) color
++ (UIImage*)createImageWithColor:(UIColor*) color
 {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -170,16 +168,16 @@ static GZPlayerView *sharedInstance = nil;
     return theImage;
 }
 
-- (void)aa
-{
-    
-}
-
 - (void)changeValue:(UISlider *)slider
 {
     if ([self.delegate respondsToSelector:@selector(setProgress:)])
     {
         [self.delegate setProgress:slider.value];
     }
+}
+
+- (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents
+{
+    [_backgroundView addTarget:target action:action forControlEvents:controlEvents];
 }
 @end
