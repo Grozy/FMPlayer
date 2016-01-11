@@ -22,7 +22,7 @@ static GZPlayerView *sharedInstance = nil;
 
 @property (nonatomic, strong) MarqueeLabel *titleLabel;
 
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) MarqueeLabel *subtitleLabel;
 
 @end
 
@@ -37,24 +37,36 @@ static GZPlayerView *sharedInstance = nil;
     });
     return sharedInstance;
 }
-
+#pragma mark - life cycle
 - (instancetype)initWithFrame:(CGRect)frame
 {
     if (self = [super initWithFrame:frame])
     {
         [self makeKeyWindow];
         self.windowLevel = UIWindowLevelAlert + 1;
-        self.backgroundColor = [UIColor whiteColor];
-        self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
-        self.layer.shadowOffset = CGSizeMake(0, 0);
-        self.layer.shadowOpacity = 1.;
-        [self addSubview:self.backgroundView];
-        [self.backgroundView addSubview:self.coverIcon];
-        [self.backgroundView addSubview:self.titleLabel];
-        [self.backgroundView addSubview:self.subtitleLabel];
-        [self.backgroundView addSubview:self.slider];
+        
+        [self _setViewStyle];
+        [self _addSubView];
     }
     return self;
+}
+
+#pragma mark - ui setup
+- (void)_setViewStyle
+{
+    self.backgroundColor = [UIColor whiteColor];
+    self.layer.shadowColor = [UIColor lightGrayColor].CGColor;
+    self.layer.shadowOffset = CGSizeMake(0, 0);
+    self.layer.shadowOpacity = 1.;
+}
+
+- (void)_addSubView
+{
+    [self addSubview:self.backgroundView];
+    [self.backgroundView addSubview:self.coverIcon];
+    [self.backgroundView addSubview:self.titleLabel];
+    [self.backgroundView addSubview:self.subtitleLabel];
+    [self.backgroundView addSubview:self.slider];
 }
 
 - (void)showInView:(UIView *)view
@@ -69,13 +81,13 @@ static GZPlayerView *sharedInstance = nil;
     self.slider.frame = CGRectMake(sliderLeft, kGap, CGRectGetWidth(self.frame) - sliderLeft - kGap, 5);
     
     self.titleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.slider.frame) + kGap - 2, CGRectGetWidth(self.slider.frame) / 2, self.titleLabel.font.lineHeight);
-    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.slider.frame), self.subtitleLabel.font.lineHeight);
+    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.slider.frame) / 2, self.subtitleLabel.font.lineHeight);
 }
 
 - (void)setUp:(GZSongItem *)songItem
 {
+    //主线程更新界面
     dispatch_async(dispatch_get_main_queue(), ^{
-        // 更新界面
         NSString *icon = [songItem.cover valueForKey:Tag_square];
         [self.coverIcon setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"default_cover"]];
         self.titleLabel.text = songItem.subtitle;
@@ -84,6 +96,7 @@ static GZPlayerView *sharedInstance = nil;
     });
 }
 
+#pragma mark - Setter & Getter
 - (UIImageView *)coverIcon
 {
     if (!_coverIcon)
@@ -114,23 +127,17 @@ static GZPlayerView *sharedInstance = nil;
     if (!_titleLabel)
     {
         _titleLabel = [[MarqueeLabel alloc] initWithFrame:CGRectMake(10, 10, 60, 20)];
-        _titleLabel.userInteractionEnabled = YES;
         _titleLabel.font = [UIFont systemFontOfSize:12.f];
-        _titleLabel.marqueeType = MLContinuous;
-        _titleLabel.scrollDuration = 15.0;
         _titleLabel.animationCurve = UIViewAnimationOptionCurveEaseInOut;
-        _titleLabel.fadeLength = 10.0f;
-        _titleLabel.leadingBuffer = 30.0f;
-        _titleLabel.trailingBuffer = 20.0f;
     }
     return _titleLabel;
 }
 
-- (UILabel *)subtitleLabel
+- (MarqueeLabel *)subtitleLabel
 {
     if (!_subtitleLabel)
     {
-        _subtitleLabel = [[UILabel alloc] init];
+        _subtitleLabel = [[MarqueeLabel alloc] init];
         _subtitleLabel.font = [UIFont systemFontOfSize:9.f];
         _subtitleLabel.textColor = [UIColor grayColor];
     }

@@ -63,10 +63,6 @@ static GZMusicHelper *sharedInstance = nil;
                    withObject:nil
                 waitUntilDone:NO];
     }
-    else if ([keyPath isEqualToString:@"timingOffset"])
-    {
-        NSLog(@"%@", change);
-    }
     else if ([keyPath isEqualToString:@"status"])
     {
         self.status = [[change valueForKey:@"new"] integerValue];
@@ -80,12 +76,14 @@ static GZMusicHelper *sharedInstance = nil;
             {
                 case EGZPlayModelPlaylist:
                 {
-                    NSInteger currentIdx = ++self.currentPlayingIdx % self.playList.count;
-                    [self playAudioItemAtIndex:currentIdx];
+                    NSInteger nextIdx = ++self.currentPlayingIdx % self.playList.count;
+                    [self playAudioItemAtIndex:nextIdx];
                     break;
                 }
                 case EGZPlayModelRandom:
                 {
+                    NSInteger nextIdx = random() % self.playList.count;
+                    [self playAudioItemAtIndex:nextIdx];
                     break;
                 }
                 case EGZPlayModelSingle:
@@ -97,10 +95,6 @@ static GZMusicHelper *sharedInstance = nil;
                     break;
             }
         }
-    }
-    else
-    {
-        NSLog(@"%@", change);
     }
 }
 
@@ -123,7 +117,6 @@ static GZMusicHelper *sharedInstance = nil;
         [_streamer removeObserver:self forKeyPath:@"duration"];
         [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
         [_streamer removeObserver:self forKeyPath:@"currentTime"];
-        
         _streamer = nil;
     }
 }
