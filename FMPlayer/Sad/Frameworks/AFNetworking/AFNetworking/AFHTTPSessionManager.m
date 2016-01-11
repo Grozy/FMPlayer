@@ -278,6 +278,7 @@
                           uploadProgress:uploadProgress
                         downloadProgress:downloadProgress
                        completionHandler:^(NSURLResponse * __unused response, id responseObject, NSError *error) {
+                           NSLog(@"%@ , %@", responseObject, error);
         if (error) {
             if (failure) {
                 failure(dataTask, error);

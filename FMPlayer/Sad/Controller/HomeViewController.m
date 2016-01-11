@@ -142,7 +142,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         }
         
         [self.playlist addObjectsFromArray: playlist];
-        
+        [[GZMusicHelper sharedInstance] updatePlayList:playlist];
         [self.tableView reloadData];
         !value ? [self.tableView.mj_header endRefreshing]: [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
@@ -183,7 +183,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     GZSongItem *songItem = [self.playlist objectAtIndex:indexPath.row];
     if (![songItem.url isEqualToString:[[GZMusicHelper sharedInstance].audioItem audioFileURL].absoluteString])
     {
-        [[GZMusicHelper sharedInstance] playWithAudioItem:songItem];
+        [[GZMusicHelper sharedInstance] playAudioItemAtIndex:indexPath.row];
     }
     //2.rotate right navigationBar item
     [[GZMusicPlayerController player] updateSongItem:songItem];

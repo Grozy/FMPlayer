@@ -74,11 +74,14 @@ static GZPlayerView *sharedInstance = nil;
 
 - (void)setUp:(GZSongItem *)songItem
 {
-    NSString *icon = [songItem.cover valueForKey:Tag_square];
-    [self.coverIcon setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"default_cover"]];
-    self.titleLabel.text = songItem.subtitle;
-    [self.subtitleLabel setText: songItem.artist];
-    [self.titleLabel unpauseLabel];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        // 更新界面
+        NSString *icon = [songItem.cover valueForKey:Tag_square];
+        [self.coverIcon setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"default_cover"]];
+        self.titleLabel.text = songItem.subtitle;
+        [self.subtitleLabel setText: songItem.artist];
+        [self.titleLabel unpauseLabel];
+    });
 }
 
 - (UIImageView *)coverIcon

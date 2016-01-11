@@ -17,12 +17,18 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 static GZMusicHelper *sharedInstance = nil;
 
 @interface GZMusicHelper()<GZSongViewDelegate>
-
+{
+    EGZPlayModel _playModel;
+}
 @property (nonatomic, assign, readwrite) EGZHelperStreamStatus status;
 
 @property (nonatomic, strong, readwrite) id<DOUAudioFile>audioItem;
 
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
+
+@property (nonatomic, strong) NSArray *playList;
+
+@property (nonatomic, assign, readwrite) NSInteger currentPlayingIdx;
 
 @end
 
@@ -41,6 +47,7 @@ static GZMusicHelper *sharedInstance = nil;
 {
     if (self = [super init])
     {
+        _playModel = EGZPlayModelPlaylist;
         [NSTimer scheduledTimerWithTimeInterval:.1 target:self selector:@selector(_timerAction:) userInfo:nil repeats:YES];
         [GZPlayerView sharedInstance].delegate = self;
     }
@@ -66,6 +73,29 @@ static GZMusicHelper *sharedInstance = nil;
         if (EGZHelperStreamStatusFinished == _status)
         {
             [self.streamer setCurrentTime:0];
+        }
+        if (EGZHelperStreamStatusFinished == self.status)
+        {
+            switch (_playModel)
+            {
+                case EGZPlayModelPlaylist:
+                {
+                    NSInteger currentIdx = ++self.currentPlayingIdx % self.playList.count;
+                    [self playAudioItemAtIndex:currentIdx];
+                    break;
+                }
+                case EGZPlayModelRandom:
+                {
+                    break;
+                }
+                case EGZPlayModelSingle:
+                {
+                    [self playAudioItemAtIndex:self.currentPlayingIdx];
+                    break;
+                }
+                default:
+                    break;
+            }
         }
     }
     else
@@ -98,12 +128,19 @@ static GZMusicHelper *sharedInstance = nil;
     }
 }
 
-- (void)playWithAudioItem:(id<DOUAudioFile>)audioItem
+- (void)playAudioItemAtIndex:(NSInteger)idx
 {
-    self.audioItem = audioItem;
-    [[GZPlayerView sharedInstance] setUp:audioItem];
-    [self _resetStreamerWithAudioFile:audioItem];
+    self.currentPlayingIdx = idx;
+    self.audioItem = [self.playList objectAtIndex:idx];
+    
+    [[GZPlayerView sharedInstance] setUp:self.audioItem];
+    [self _resetStreamerWithAudioFile:self.audioItem];
     [_streamer play];
+}
+
+- (void)updatePlayList:(NSArray <GZSongItem *>*)playList
+{
+    self.playList = playList;
 }
 
 - (void)pause
@@ -141,6 +178,11 @@ static GZMusicHelper *sharedInstance = nil;
     {
         [[GZPlayerView sharedInstance].slider setValue:[_streamer currentTime] / [_streamer duration] animated:YES];
     }
+}
+
+- (void)setCurrentPlayModel:(EGZPlayModel)playModel
+{
+    _playModel = playModel;
 }
 
 @end

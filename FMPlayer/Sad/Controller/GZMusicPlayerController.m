@@ -50,5 +50,10 @@ static GZMusicPlayerController *player = nil;
     self.title = songItem.subtitle;
 }
 
+- (void)updatePlayList:(NSArray <GZSongItem *>*)songItem
+{
+    
+}
+
 
 @end
