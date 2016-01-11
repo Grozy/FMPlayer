@@ -113,12 +113,12 @@ static GZPlayerView *sharedInstance = nil;
         _titleLabel = [[MarqueeLabel alloc] initWithFrame:CGRectMake(10, 10, 60, 20)];
         _titleLabel.userInteractionEnabled = YES;
         _titleLabel.font = [UIFont systemFontOfSize:12.f];
-//        _titleLabel.marqueeType = MLContinuous;
-//        _titleLabel.scrollDuration = 15.0;
-//        _titleLabel.animationCurve = UIViewAnimationOptionCurveEaseInOut;
-//        _titleLabel.fadeLength = 10.0f;
-//        _titleLabel.leadingBuffer = 30.0f;
-//        _titleLabel.trailingBuffer = 20.0f;
+        _titleLabel.marqueeType = MLContinuous;
+        _titleLabel.scrollDuration = 15.0;
+        _titleLabel.animationCurve = UIViewAnimationOptionCurveEaseInOut;
+        _titleLabel.fadeLength = 10.0f;
+        _titleLabel.leadingBuffer = 30.0f;
+        _titleLabel.trailingBuffer = 20.0f;
     }
     return _titleLabel;
 }

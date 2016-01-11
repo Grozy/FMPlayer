@@ -481,13 +481,6 @@ CGPoint MLOffsetCGPoint(CGPoint point, CGFloat offset);
     if (!self.window) {
         return NO;
     }
-    
-    // Check if our view controller is ready
-    UIViewController *viewController = [self firstAvailableViewController];
-    if (!viewController.isViewLoaded) {
-        return NO;
-    }
-    
     return YES;
 }
 

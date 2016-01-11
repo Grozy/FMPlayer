@@ -89,19 +89,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 #pragma mark - ui setup
-- (void)addRightBarItem
-{
- 
-    UIBarButtonItem *spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:nil action:nil];
-    spaceItem.width = -10.f;
-    
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    button.frame = CGRectMake(0, 0, 35, 35);
-    [button addTarget:self action:@selector(player:) forControlEvents:UIControlEventTouchUpInside];
-    [button setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:button];
-    self.navigationItem.rightBarButtonItems = @[spaceItem ,rightItem];
-}
 
 - (void)addTableViewComplete:(void (^)())completeBlock
 {
@@ -126,13 +113,11 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 {
     if (!value)
     {
-        [self.playlist removeAllObjects];
         pageNumber = 1;
     }
     else
-    {
         pageNumber++;
-    }
+
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] init];
     
     NSDictionary *parameters = @{
@@ -141,6 +126,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
                                  };
     
     [sessionManager GET:[NSString stringWithFormat:@"%@",kMeoFMApi] parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        
+        if (!value)
+        {
+            [self.playlist removeAllObjects];
+        }
+        
         NSDictionary *response = [responseObject valueForKey:@"response"];
         NSArray *playlistInResponse = [response valueForKey:@"playlist"];
         NSMutableArray *playlist = [NSMutableArray array];
@@ -155,7 +146,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         [self.tableView reloadData];
         !value ? [self.tableView.mj_header endRefreshing]: [self.tableView.mj_footer endRefreshing];
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        
+        !value ? [self.tableView.mj_header endRefreshing]: [self.tableView.mj_footer endRefreshing];
     }];
 }
 

@@ -7,36 +7,24 @@
 //
 
 #import "AppDelegate.h"
-#import "WXApi.h"
+
 #import "WXConst.h"
 #import "ViewController.h"
 #import "HomeViewController.h"
 #import "UIColor+Theme.h"
 
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
 #pragma mark - WXApiDelegate
-- (void)onReq:(BaseReq *)req
-{
-    
-}
-
-
-- (void)onResp:(BaseResp *)resp
-{
-    
-}
 
 #pragma mark - system
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    [WXApi registerApp:kWXAppId];
-
     HomeViewController *homeViewController = [[HomeViewController alloc] init];
     UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     
@@ -49,16 +37,6 @@
     
     self.window.rootViewController =  homeNavigationController;
     return YES;
-}
-
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
-{
-    return [WXApi handleOpenURL:url delegate:self];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
-{
-    return [WXApi handleOpenURL:url delegate:self];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
