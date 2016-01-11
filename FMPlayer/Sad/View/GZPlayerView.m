@@ -74,8 +74,8 @@ static GZPlayerView *sharedInstance = nil;
 
 - (void)setUp:(GZSongItem *)songItem
 {
+    //主线程更新界面
     dispatch_async(dispatch_get_main_queue(), ^{
-        // 更新界面
         NSString *icon = [songItem.cover valueForKey:Tag_square];
         [self.coverIcon setImageWithURL:[NSURL URLWithString:icon] placeholderImage:[UIImage imageNamed:@"default_cover"]];
         self.titleLabel.text = songItem.subtitle;

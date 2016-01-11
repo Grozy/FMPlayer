@@ -80,12 +80,14 @@ static GZMusicHelper *sharedInstance = nil;
             {
                 case EGZPlayModelPlaylist:
                 {
-                    NSInteger currentIdx = ++self.currentPlayingIdx % self.playList.count;
-                    [self playAudioItemAtIndex:currentIdx];
+                    NSInteger nextIdx = ++self.currentPlayingIdx % self.playList.count;
+                    [self playAudioItemAtIndex:nextIdx];
                     break;
                 }
                 case EGZPlayModelRandom:
                 {
+                    NSInteger nextIdx = random() % self.playList.count;
+                    [self playAudioItemAtIndex:nextIdx];
                     break;
                 }
                 case EGZPlayModelSingle:
