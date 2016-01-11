@@ -22,7 +22,7 @@ static GZPlayerView *sharedInstance = nil;
 
 @property (nonatomic, strong) MarqueeLabel *titleLabel;
 
-@property (nonatomic, strong) UILabel *subtitleLabel;
+@property (nonatomic, strong) MarqueeLabel *subtitleLabel;
 
 @end
 
@@ -69,7 +69,7 @@ static GZPlayerView *sharedInstance = nil;
     self.slider.frame = CGRectMake(sliderLeft, kGap, CGRectGetWidth(self.frame) - sliderLeft - kGap, 5);
     
     self.titleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.slider.frame) + kGap - 2, CGRectGetWidth(self.slider.frame) / 2, self.titleLabel.font.lineHeight);
-    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.slider.frame), self.subtitleLabel.font.lineHeight);
+    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.slider.frame) / 2, self.subtitleLabel.font.lineHeight);
 }
 
 - (void)setUp:(GZSongItem *)songItem
@@ -126,11 +126,11 @@ static GZPlayerView *sharedInstance = nil;
     return _titleLabel;
 }
 
-- (UILabel *)subtitleLabel
+- (MarqueeLabel *)subtitleLabel
 {
     if (!_subtitleLabel)
     {
-        _subtitleLabel = [[UILabel alloc] init];
+        _subtitleLabel = [[MarqueeLabel alloc] init];
         _subtitleLabel.font = [UIFont systemFontOfSize:9.f];
         _subtitleLabel.textColor = [UIColor grayColor];
     }

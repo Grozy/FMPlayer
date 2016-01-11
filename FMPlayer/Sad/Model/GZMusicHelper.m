@@ -63,10 +63,6 @@ static GZMusicHelper *sharedInstance = nil;
                    withObject:nil
                 waitUntilDone:NO];
     }
-    else if ([keyPath isEqualToString:@"timingOffset"])
-    {
-        NSLog(@"%@", change);
-    }
     else if ([keyPath isEqualToString:@"status"])
     {
         self.status = [[change valueForKey:@"new"] integerValue];
@@ -100,10 +96,6 @@ static GZMusicHelper *sharedInstance = nil;
             }
         }
     }
-    else
-    {
-        NSLog(@"%@", change);
-    }
 }
 
 - (void)_resetStreamerWithAudioFile:(id<DOUAudioFile>)file
@@ -125,7 +117,6 @@ static GZMusicHelper *sharedInstance = nil;
         [_streamer removeObserver:self forKeyPath:@"duration"];
         [_streamer removeObserver:self forKeyPath:@"bufferingRatio"];
         [_streamer removeObserver:self forKeyPath:@"currentTime"];
-        
         _streamer = nil;
     }
 }
