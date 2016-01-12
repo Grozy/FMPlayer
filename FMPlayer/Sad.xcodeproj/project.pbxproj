@@ -94,8 +94,6 @@
 		8CAB714E1C41463A0076FAFF /* thumbImage@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB714C1C41463A0076FAFF /* thumbImage@2x.png */; };
 		8CAB714F1C41463A0076FAFF /* thumbImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CAB714D1C41463A0076FAFF /* thumbImage@3x.png */; };
 		8CAB71521C415E640076FAFF /* UIColor-Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB71511C415E640076FAFF /* UIColor-Expanded.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		8CAB71551C41FFD90076FAFF /* XPQScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB71541C41FFD90076FAFF /* XPQScrollLabel.m */; };
-		8CAB71581C4202520076FAFF /* AutoScrollLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB71571C4202520076FAFF /* AutoScrollLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8CAB715B1C420E6D0076FAFF /* MarqueeLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB715A1C420E6D0076FAFF /* MarqueeLabel.m */; };
 		8CAB715E1C424D2E0076FAFF /* UIColor+Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB715D1C424D2E0076FAFF /* UIColor+Theme.m */; };
 		8CAB71601C4251810076FAFF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CAB715F1C4251810076FAFF /* QuartzCore.framework */; };
@@ -286,10 +284,6 @@
 		8CAB714D1C41463A0076FAFF /* thumbImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "thumbImage@3x.png"; sourceTree = "<group>"; };
 		8CAB71501C415E640076FAFF /* UIColor-Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor-Expanded.h"; sourceTree = "<group>"; };
 		8CAB71511C415E640076FAFF /* UIColor-Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor-Expanded.m"; sourceTree = "<group>"; };
-		8CAB71531C41FFD90076FAFF /* XPQScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XPQScrollLabel.h; path = View/XPQScrollLabel.h; sourceTree = "<group>"; };
-		8CAB71541C41FFD90076FAFF /* XPQScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XPQScrollLabel.m; path = View/XPQScrollLabel.m; sourceTree = "<group>"; };
-		8CAB71561C4202520076FAFF /* AutoScrollLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AutoScrollLabel.h; path = View/AutoScrollLabel/AutoScrollLabel.h; sourceTree = "<group>"; };
-		8CAB71571C4202520076FAFF /* AutoScrollLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AutoScrollLabel.m; path = View/AutoScrollLabel/AutoScrollLabel.m; sourceTree = "<group>"; };
 		8CAB71591C420E6D0076FAFF /* MarqueeLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MarqueeLabel.h; path = View/MarqueeLabel.h; sourceTree = "<group>"; };
 		8CAB715A1C420E6D0076FAFF /* MarqueeLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MarqueeLabel.m; path = View/MarqueeLabel.m; sourceTree = "<group>"; };
 		8CAB715C1C424D2E0076FAFF /* UIColor+Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Theme.h"; sourceTree = "<group>"; };
@@ -560,10 +554,6 @@
 			children = (
 				8CAB71591C420E6D0076FAFF /* MarqueeLabel.h */,
 				8CAB715A1C420E6D0076FAFF /* MarqueeLabel.m */,
-				8CAB71561C4202520076FAFF /* AutoScrollLabel.h */,
-				8CAB71571C4202520076FAFF /* AutoScrollLabel.m */,
-				8CAB71531C41FFD90076FAFF /* XPQScrollLabel.h */,
-				8CAB71541C41FFD90076FAFF /* XPQScrollLabel.m */,
 				8CAB70F41C40E2090076FAFF /* GZSongListCell.h */,
 				8CAB70F51C40E2090076FAFF /* GZSongListCell.m */,
 				8CAB71491C41381C0076FAFF /* GZPlayerView.h */,
@@ -865,7 +855,6 @@
 				8CAB713A1C4100B80076FAFF /* MJRefreshConst.m in Sources */,
 				8CAB70E61C40C5780076FAFF /* GZSongItem.m in Sources */,
 				8CAB71351C4100B80076FAFF /* MJRefreshBackStateFooter.m in Sources */,
-				8CAB71581C4202520076FAFF /* AutoScrollLabel.m in Sources */,
 				8CCC6FB91C3FF60B004AB7BD /* AppDelegate.m in Sources */,
 				8C7AE75F1C4023F0001D729B /* AFHTTPSessionManager.m in Sources */,
 				8C7AE7641C4023F0001D729B /* AFURLSessionManager.m in Sources */,
@@ -897,7 +886,6 @@
 				8C7AE76A1C4023F0001D729B /* UIButton+AFNetworking.m in Sources */,
 				8CAB713D1C4100B80076FAFF /* UIView+MJExtension.m in Sources */,
 				8CAB70DE1C40B8900076FAFF /* DOUAudioVisualizer.m in Sources */,
-				8CAB71551C41FFD90076FAFF /* XPQScrollLabel.m in Sources */,
 				8CAB715B1C420E6D0076FAFF /* MarqueeLabel.m in Sources */,
 				8CAB70D71C40B8900076FAFF /* DOUAudioFrequencyAnalyzer.m in Sources */,
 				8CAB70D31C40B8900076FAFF /* DOUAudioDecoder.m in Sources */,
