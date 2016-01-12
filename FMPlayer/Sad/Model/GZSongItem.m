@@ -14,7 +14,8 @@
 {
     if (self = [super initWithDict:dict])
     {
-        self.artist = [dict valueForKey:Tag_artist];
+        NSString *artist = [dict valueForKey:Tag_artist];
+        self.artist = artist.length > 0? artist: @"未知";
         self.cover = [dict valueForKey:Tag_cover];
         self.fileSize = [[dict valueForKey:Tag_file_size] integerValue];
         self.fileType = GZSongFileTypeMP3;
