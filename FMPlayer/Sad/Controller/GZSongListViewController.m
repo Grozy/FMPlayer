@@ -182,6 +182,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     //1.play music at index
     GZSongItem *songItem = [self.playlist objectAtIndex:indexPath.row];
     if (![songItem.url isEqualToString:[[GZMusicHelper sharedInstance].audioItem audioFileURL].absoluteString])
