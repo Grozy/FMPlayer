@@ -139,7 +139,7 @@ static GZPlayerView *sharedInstance = nil;
         _slider.tintColor = [UIColor colorWithRGBHex:0xFFC7D6];
         UIImage *thumbImage = [UIImage imageNamed:@"thumbImage"];
         [_slider setThumbImage:thumbImage forState:UIControlStateNormal];
-        [_slider addTarget:self action:@selector(changeValue:) forControlEvents:UIControlEventValueChanged];
+        [_slider addTarget:self action:@selector(_changeValue:) forControlEvents:UIControlEventValueChanged];
     }
     return _slider;
 }
@@ -171,9 +171,9 @@ static GZPlayerView *sharedInstance = nil;
     if (!_backgroundView)
     {
         _backgroundView = [UIButton buttonWithType:UIButtonTypeCustom];
-        UIImage *image = [GZPlayerView createImageWithColor:[UIColor whiteColor]];
+        UIImage *image = [GZPlayerView _createImageWithColor:[UIColor whiteColor]];
         [_backgroundView setBackgroundImage:image forState:UIControlStateNormal];
-        image = [GZPlayerView createImageWithColor:[UIColor colorWithRGBHex:0xE9E8D2]];
+        image = [GZPlayerView _createImageWithColor:[UIColor colorWithRGBHex:0xE9E8D2]];
         [_backgroundView setBackgroundImage:image forState:UIControlStateHighlighted];
     }
     return _backgroundView;
@@ -185,6 +185,7 @@ static GZPlayerView *sharedInstance = nil;
     {
         _collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _collectionButton.backgroundColor = [UIColor blueColor];
+        [_collectionButton addTarget:self action:@selector(_collectionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _collectionButton;
 }
@@ -195,11 +196,12 @@ static GZPlayerView *sharedInstance = nil;
     {
         _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _nextButton.backgroundColor = [UIColor redColor];
+        [_nextButton addTarget:self action:@selector(_nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _nextButton;
 }
 
-+ (UIImage*)createImageWithColor:(UIColor*) color
++ (UIImage*)_createImageWithColor:(UIColor*) color
 {
     CGRect rect=CGRectMake(0.0f, 0.0f, 1.0f, 1.0f);
     UIGraphicsBeginImageContext(rect.size);
@@ -211,12 +213,22 @@ static GZPlayerView *sharedInstance = nil;
     return theImage;
 }
 
-- (void)changeValue:(UISlider *)slider
+- (void)_nextButtonClicked:(UIButton *)button
+{
+    if ([self.delegate respondsToSelector:@selector(nextSong)])
+        [self.delegate nextSong];
+}
+
+- (void)_collectionButtonClicked:(UIButton *)button
+{
+    if ([self.delegate respondsToSelector:@selector(markLike)])
+        [self.delegate markLike];
+}
+
+- (void)_changeValue:(UISlider *)slider
 {
     if ([self.delegate respondsToSelector:@selector(setProgress:)])
-    {
         [self.delegate setProgress:slider.value];
-    }
 }
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents

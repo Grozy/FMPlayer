@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8C7AE7111C4016CA001D729B /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AE7101C4016CA001D729B /* HomeViewController.m */; };
+		8C7AE7111C4016CA001D729B /* GZSongListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AE7101C4016CA001D729B /* GZSongListViewController.m */; };
 		8C7AE7241C401A1E001D729B /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7AE71F1C401A1E001D729B /* libWeChatSDK.a */; };
 		8C7AE7251C401A1E001D729B /* read_me.txt in Resources */ = {isa = PBXBuildFile; fileRef = 8C7AE7201C401A1E001D729B /* read_me.txt */; };
 		8C7AE7281C401B61001D729B /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8C7AE7271C401B61001D729B /* SystemConfiguration.framework */; };
@@ -117,8 +117,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		8C7AE70F1C4016CA001D729B /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HomeViewController.h; path = Controller/HomeViewController.h; sourceTree = "<group>"; };
-		8C7AE7101C4016CA001D729B /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HomeViewController.m; path = Controller/HomeViewController.m; sourceTree = "<group>"; };
+		8C7AE70F1C4016CA001D729B /* GZSongListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GZSongListViewController.h; path = Controller/GZSongListViewController.h; sourceTree = "<group>"; };
+		8C7AE7101C4016CA001D729B /* GZSongListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GZSongListViewController.m; path = Controller/GZSongListViewController.m; sourceTree = "<group>"; };
 		8C7AE71F1C401A1E001D729B /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		8C7AE7201C401A1E001D729B /* read_me.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = read_me.txt; sourceTree = "<group>"; };
 		8C7AE7211C401A1E001D729B /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
@@ -332,8 +332,8 @@
 		8C7AE7121C4016D3001D729B /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8C7AE70F1C4016CA001D729B /* HomeViewController.h */,
-				8C7AE7101C4016CA001D729B /* HomeViewController.m */,
+				8C7AE70F1C4016CA001D729B /* GZSongListViewController.h */,
+				8C7AE7101C4016CA001D729B /* GZSongListViewController.m */,
 				8CAB71461C4122130076FAFF /* GZMusicPlayerController.h */,
 				8CAB71471C4122130076FAFF /* GZMusicPlayerController.m */,
 			);
@@ -867,7 +867,7 @@
 				8C7AE76C1C4023F0001D729B /* UIProgressView+AFNetworking.m in Sources */,
 				8C7AE7601C4023F0001D729B /* AFNetworkReachabilityManager.m in Sources */,
 				8CAB70E21C40B8900076FAFF /* NSData+DOUMappedFile.m in Sources */,
-				8C7AE7111C4016CA001D729B /* HomeViewController.m in Sources */,
+				8C7AE7111C4016CA001D729B /* GZSongListViewController.m in Sources */,
 				8CAB71381C4100B80076FAFF /* MJRefreshStateHeader.m in Sources */,
 				8CAB70D91C40B8900076FAFF /* DOUAudioPlaybackItem.m in Sources */,
 				8CAB70D41C40B8900076FAFF /* DOUAudioEventLoop.m in Sources */,

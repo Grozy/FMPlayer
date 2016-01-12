@@ -13,6 +13,10 @@
 @optional
 - (void)setProgress:(CGFloat)progress;
 
+- (void)nextSong;
+
+- (void)markLike;
+
 @end
 
 @class GZSongItem;

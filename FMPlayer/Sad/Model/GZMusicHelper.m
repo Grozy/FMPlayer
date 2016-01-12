@@ -156,7 +156,15 @@ static GZMusicHelper *sharedInstance = nil;
     [self.streamer setCurrentTime:progress * self.streamer.duration];
 }
 
-- (void)targing:(UISlider *)slider
+- (void)nextSong
+{
+    if (!self.playList.count)
+        NSLog(@"no data");
+    NSInteger nextIdx = ++self.currentPlayingIdx % self.playList.count;
+    [self playAudioItemAtIndex:nextIdx];
+}
+
+- (void)markLike
 {
     
 }
