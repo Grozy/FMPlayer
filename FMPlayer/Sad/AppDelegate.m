@@ -10,7 +10,7 @@
 
 #import "WXConst.h"
 #import "ViewController.h"
-#import "HomeViewController.h"
+#import "GZSongListViewController.h"
 #import "UIColor+Theme.h"
 
 @interface AppDelegate ()
@@ -25,7 +25,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
-    HomeViewController *homeViewController = [[HomeViewController alloc] init];
+    GZSongListViewController *homeViewController = [[GZSongListViewController alloc] init];
     UINavigationController *homeNavigationController = [[UINavigationController alloc] initWithRootViewController:homeViewController];
     
     

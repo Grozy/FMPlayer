@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface HomeViewController : UIViewController
+@interface GZSongListViewController : UIViewController
 
 @end

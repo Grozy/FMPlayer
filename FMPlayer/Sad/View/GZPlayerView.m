@@ -185,7 +185,7 @@ static GZPlayerView *sharedInstance = nil;
     {
         _collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _collectionButton.backgroundColor = [UIColor blueColor];
-        [_collectionButton addTarget:self action:@selector(_markLike) forControlEvents:UIControlEventTouchUpInside];
+        [_collectionButton addTarget:self action:@selector(_collectionButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _collectionButton;
 }
@@ -196,7 +196,7 @@ static GZPlayerView *sharedInstance = nil;
     {
         _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
         _nextButton.backgroundColor = [UIColor redColor];
-        [_nextButton addTarget:self action:@selector(_next) forControlEvents:UIControlEventTouchUpInside];
+        [_nextButton addTarget:self action:@selector(_nextButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _nextButton;
 }
@@ -213,28 +213,22 @@ static GZPlayerView *sharedInstance = nil;
     return theImage;
 }
 
-- (void)_next
+- (void)_nextButtonClicked:(UIButton *)button
 {
     if ([self.delegate respondsToSelector:@selector(nextSong)])
-    {
         [self.delegate nextSong];
-    }
 }
 
-- (void)_markLike
+- (void)_collectionButtonClicked:(UIButton *)button
 {
     if ([self.delegate respondsToSelector:@selector(markLike)])
-    {
         [self.delegate markLike];
-    }
 }
 
 - (void)_changeValue:(UISlider *)slider
 {
     if ([self.delegate respondsToSelector:@selector(setProgress:)])
-    {
         [self.delegate setProgress:slider.value];
-    }
 }
 
 - (void)addTarget:(id)target action:(SEL)action forControlEvents:(UIControlEvents)controlEvents

@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Sad/Model/GZMusicHelper.m"
-            timestampString = "474271052.630293"
+            filePath = "Sad/Model/GZSongItem.m"
+            timestampString = "474272501.22842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
-            landmarkName = "-markLike"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "-initWithDict:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

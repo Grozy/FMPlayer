@@ -6,7 +6,7 @@
 //  Copyright © 2016年 grozy. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "GZSongListViewController.h"
 #import "GZMusicPlayerController.h"
 
 #import "AFNetworking.h"
@@ -28,7 +28,7 @@ static void *kDurationKVOKey = &kDurationKVOKey;
 static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 
-@interface HomeViewController ()<UITableViewDataSource, UITableViewDelegate>
+@interface GZSongListViewController ()<UITableViewDataSource, UITableViewDelegate>
 {
     NSInteger pageNumber;
 }
@@ -38,7 +38,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
 @end
 
-@implementation HomeViewController
+@implementation GZSongListViewController
 
 - (instancetype)init
 {
@@ -49,7 +49,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
         pageNumber = 1;
         
         [[GZMusicHelper sharedInstance] addObserver:self forKeyPath:@"status" options:NSKeyValueObservingOptionNew context:nil];
-        [[GZPlayerView sharedInstance] addTarget:self action:@selector(openPlayerController:) forControlEvents:UIControlEventTouchUpInside];
+        [[GZPlayerView sharedInstance] addTarget:self action:@selector(_openPlayerController:) forControlEvents:UIControlEventTouchUpInside];
     }
     return self;
 }
@@ -60,9 +60,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 
     [[GZPlayerView sharedInstance] showInView:self.view];
     
-    __weak HomeViewController *weakSelf = self;
+    __weak GZSongListViewController *weakSelf = self;
     
-    [self addTableViewComplete:^{
+    [self _addTableViewComplete:^{
         [weakSelf.tableView.mj_header beginRefreshing];
     }];
 }
@@ -82,20 +82,17 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 {
     if ([keyPath isEqualToString:@"status"])
     {
-        if ([[change valueForKey:@"new"] integerValue] != 0)
-        {
 
-        }
     }
 }
 
 #pragma mark - ui setup
 
-- (void)addTableViewComplete:(void (^)())completeBlock
+- (void)_addTableViewComplete:(void (^)())completeBlock
 {
     [self.view addSubview:self.tableView];
     
-    __weak HomeViewController *homeController = self;
+    __weak GZSongListViewController *homeController = self;
     self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [homeController _loadMore:NO];
     }];
@@ -109,7 +106,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 #pragma mark - event
-- (void)openPlayerController:(id)sender
+- (void)_openPlayerController:(id)sender
 {
     GZMusicPlayerController *controller = [[GZMusicPlayerController alloc] init];
     [controller updateSongItem:[GZMusicHelper sharedInstance].audioItem];
@@ -123,8 +120,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     {
         pageNumber = 1;
     }
-    else
-        pageNumber++;
 
     AFHTTPSessionManager *sessionManager = [[AFHTTPSessionManager alloc] init];
     
@@ -136,9 +131,9 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     [sessionManager GET:[NSString stringWithFormat:@"%@",kMeoFMApi] parameters:parameters progress:nil success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
         if (!value)
-        {
             [self.playlist removeAllObjects];
-        }
+        else
+                pageNumber++;
         
         NSDictionary *response = [responseObject valueForKey:@"response"];
         NSArray *playlistInResponse = [response valueForKey:@"playlist"];
