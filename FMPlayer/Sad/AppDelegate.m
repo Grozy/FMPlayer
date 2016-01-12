@@ -12,7 +12,6 @@
 #import "ViewController.h"
 #import "GZSongListViewController.h"
 #import "UIColor+Theme.h"
-#import "RESideMenu.h"
 
 @interface AppDelegate ()
 
@@ -42,7 +41,7 @@
     RESideMenu *sideMenuViewController = [[RESideMenu alloc] initWithContentViewController:homeNavigationController
                                                                     leftMenuViewController:nil
                                                                    rightMenuViewController:rightMenuViewController];
-    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"Stars"];
+    sideMenuViewController.backgroundImage = [UIImage imageNamed:@"background"];
     sideMenuViewController.menuPreferredStatusBarStyle = 1; // UIStatusBarStyleLightContent
     sideMenuViewController.delegate = self;
     sideMenuViewController.contentViewShadowColor = [UIColor blackColor];
