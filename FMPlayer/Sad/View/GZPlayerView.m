@@ -18,11 +18,22 @@ static GZPlayerView *sharedInstance = nil;
 
 @property (nonatomic, strong) UIButton *backgroundView;
 
+/*
+ * 音乐封面->之后更换为button，同时作为音乐的播放按钮
+ */
 @property (nonatomic, strong) UIImageView *coverIcon;
 
+//曲目
 @property (nonatomic, strong) MarqueeLabel *titleLabel;
 
+//艺术家
 @property (nonatomic, strong) MarqueeLabel *subtitleLabel;
+
+//下一曲
+@property (nonatomic, strong) UIButton *nextButton;
+
+//收藏
+@property (nonatomic, strong) UIButton *collectionButton;
 
 @end
 
@@ -42,6 +53,7 @@ static GZPlayerView *sharedInstance = nil;
     if (self = [super initWithFrame:frame])
     {
         [self makeKeyWindow];
+        self.hidden = NO;
         self.windowLevel = UIWindowLevelAlert + 1;
         
         [self _setViewStyle];
@@ -66,21 +78,32 @@ static GZPlayerView *sharedInstance = nil;
     [self.backgroundView addSubview:self.titleLabel];
     [self.backgroundView addSubview:self.subtitleLabel];
     [self.backgroundView addSubview:self.slider];
+    [self.backgroundView addSubview:self.collectionButton];
+    [self.backgroundView addSubview:self.nextButton];
 }
 
 - (void)showInView:(UIView *)view
 {
     self.frame = CGRectMake(0, CGRectGetHeight(view.frame) - 64, CGRectGetWidth(view.frame), 64);
     self.backgroundView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), 64);
-    self.hidden = NO;
+    
     CGFloat kGap = 10.f;
     CGFloat coverWidht = 44.f;
     self.coverIcon.frame = CGRectMake(kGap, kGap, coverWidht, coverWidht);
+    
     CGFloat sliderLeft = kGap * 2 + coverWidht;
     self.slider.frame = CGRectMake(sliderLeft, kGap, CGRectGetWidth(self.frame) - sliderLeft - kGap, 5);
     
-    self.titleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.slider.frame) + kGap - 2, CGRectGetWidth(self.slider.frame) / 2, self.titleLabel.font.lineHeight);
-    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.slider.frame) / 2, self.subtitleLabel.font.lineHeight);
+    CGFloat buttonSize = 35.f;
+    CGFloat bottomOfSlider = CGRectGetMaxY(self.slider.frame);
+    
+    self.collectionButton.frame = CGRectMake(CGRectGetWidth(self.frame) - kGap - buttonSize, bottomOfSlider + kGap * 2 / 3, buttonSize, buttonSize);
+    
+    self.nextButton.frame = CGRectMake(CGRectGetMinX(self.collectionButton.frame) - kGap - buttonSize, bottomOfSlider + kGap *2 / 3, buttonSize, buttonSize);
+    
+    self.titleLabel.frame = CGRectMake(sliderLeft, bottomOfSlider + kGap - 2, CGRectGetMinX(self.nextButton.frame)  - sliderLeft - kGap, self.titleLabel.font.lineHeight);
+    
+    self.subtitleLabel.frame = CGRectMake(sliderLeft, CGRectGetMaxY(self.titleLabel.frame) + 5, CGRectGetWidth(self.titleLabel.frame) , self.subtitleLabel.font.lineHeight);
 }
 
 - (void)setUp:(GZSongItem *)songItem
@@ -154,6 +177,26 @@ static GZPlayerView *sharedInstance = nil;
         [_backgroundView setBackgroundImage:image forState:UIControlStateHighlighted];
     }
     return _backgroundView;
+}
+
+- (UIButton *)collectionButton
+{
+    if (!_collectionButton)
+    {
+        _collectionButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _collectionButton.backgroundColor = [UIColor blueColor];
+    }
+    return _collectionButton;
+}
+
+- (UIButton *)nextButton
+{
+    if (!_nextButton)
+    {
+        _nextButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        _nextButton.backgroundColor = [UIColor redColor];
+    }
+    return _nextButton;
 }
 
 + (UIImage*)createImageWithColor:(UIColor*) color
