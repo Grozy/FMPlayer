@@ -104,6 +104,10 @@
 		8CCC6FC11C3FF60B004AB7BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CCC6FC01C3FF60B004AB7BD /* Images.xcassets */; };
 		8CCC6FC41C3FF60B004AB7BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CCC6FC21C3FF60B004AB7BD /* LaunchScreen.xib */; };
 		8CCC6FD01C3FF60B004AB7BD /* SadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCC6FCF1C3FF60B004AB7BD /* SadTests.m */; };
+		959852C51C450DD2003751B7 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C01C450DD2003751B7 /* RECommonFunctions.m */; };
+		959852C61C450DD2003751B7 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C21C450DD2003751B7 /* RESideMenu.m */; };
+		959852C71C450DD2003751B7 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */; };
+		959852C91C450FB3003751B7 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 959852C81C450FB3003751B7 /* Stars@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -302,6 +306,13 @@
 		8CCC6FC91C3FF60B004AB7BD /* SadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCC6FCE1C3FF60B004AB7BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CCC6FCF1C3FF60B004AB7BD /* SadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SadTests.m; sourceTree = "<group>"; };
+		959852BF1C450DD2003751B7 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		959852C01C450DD2003751B7 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		959852C11C450DD2003751B7 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		959852C21C450DD2003751B7 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		959852C31C450DD2003751B7 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
+		959852C81C450FB3003751B7 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Stars@2x.png"; path = "../../../../../../../Downloads/RESideMenu-master/Examples/Simple/RESideMenuExample/Images.xcassets/Stars.imageset/Stars@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +354,7 @@
 		8C7AE7131C4016E5001D729B /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				959852BE1C450DD2003751B7 /* RESideMenu */,
 				8CAB715F1C4251810076FAFF /* QuartzCore.framework */,
 				8CAB70FE1C4100B80076FAFF /* MJRefresh */,
 				8CAB70A81C40B8900076FAFF /* DOUAudioStream */,
@@ -535,6 +547,7 @@
 		8CAB70ED1C40E15B0076FAFF /* image */ = {
 			isa = PBXGroup;
 			children = (
+				959852C81C450FB3003751B7 /* Stars@2x.png */,
 				8CAB714C1C41463A0076FAFF /* thumbImage@2x.png */,
 				8CAB714D1C41463A0076FAFF /* thumbImage@3x.png */,
 				8CAB71421C4115DE0076FAFF /* radio_normal@2x.png */,
@@ -725,6 +738,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		959852BE1C450DD2003751B7 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				959852BF1C450DD2003751B7 /* RECommonFunctions.h */,
+				959852C01C450DD2003751B7 /* RECommonFunctions.m */,
+				959852C11C450DD2003751B7 /* RESideMenu.h */,
+				959852C21C450DD2003751B7 /* RESideMenu.m */,
+				959852C31C450DD2003751B7 /* UIViewController+RESideMenu.h */,
+				959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */,
+			);
+			name = RESideMenu;
+			path = Frameworks/RESideMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -807,6 +834,7 @@
 			files = (
 				8C7AE7651C4023F0001D729B /* Info.plist in Resources */,
 				8CAB71441C4115DE0076FAFF /* radio_normal@2x.png in Resources */,
+				959852C91C450FB3003751B7 /* Stars@2x.png in Resources */,
 				8CAB70A41C40A9C90076FAFF /* GTMOAuthViewTouch.xib in Resources */,
 				8CAB71391C4100B80076FAFF /* MJRefresh.bundle in Resources */,
 				8CAB70FC1C40EB030076FAFF /* play@2x.png in Resources */,
@@ -859,6 +887,7 @@
 				8C7AE75F1C4023F0001D729B /* AFHTTPSessionManager.m in Sources */,
 				8C7AE7641C4023F0001D729B /* AFURLSessionManager.m in Sources */,
 				8CAB70E01C40B8900076FAFF /* DOUMPMediaLibraryAssetLoader.m in Sources */,
+				959852C71C450DD2003751B7 /* UIViewController+RESideMenu.m in Sources */,
 				8C7AE7691C4023F0001D729B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				8CAB70D61C40B8900076FAFF /* DOUAudioFileProvider.m in Sources */,
 				8CAB70D51C40B8900076FAFF /* DOUAudioFilePreprocessor.m in Sources */,
@@ -883,6 +912,7 @@
 				8CAB71481C4122130076FAFF /* GZMusicPlayerController.m in Sources */,
 				8CAB714B1C41381C0076FAFF /* GZPlayerView.m in Sources */,
 				8CAB70A11C40A9C90076FAFF /* GTMOAuthAuthentication.m in Sources */,
+				959852C51C450DD2003751B7 /* RECommonFunctions.m in Sources */,
 				8C7AE76A1C4023F0001D729B /* UIButton+AFNetworking.m in Sources */,
 				8CAB713D1C4100B80076FAFF /* UIView+MJExtension.m in Sources */,
 				8CAB70DE1C40B8900076FAFF /* DOUAudioVisualizer.m in Sources */,
@@ -900,6 +930,7 @@
 				8CAB71301C4100B80076FAFF /* MJRefreshAutoGifFooter.m in Sources */,
 				8CAB71321C4100B80076FAFF /* MJRefreshAutoStateFooter.m in Sources */,
 				8C7AE7621C4023F0001D729B /* AFURLRequestSerialization.m in Sources */,
+				959852C61C450DD2003751B7 /* RESideMenu.m in Sources */,
 				8C7AE7661C4023F0001D729B /* AFAutoPurgingImageCache.m in Sources */,
 				8CAB71361C4100B80076FAFF /* MJRefreshGifHeader.m in Sources */,
 				8CAB70A21C40A9C90076FAFF /* GTMOAuthSignIn.m in Sources */,

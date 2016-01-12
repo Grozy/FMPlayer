@@ -44,7 +44,7 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 {
     if (self = [super init])
     {
-        self.title = @"萌否电台";
+        self.title = @"电台";
         self.playlist = [NSMutableArray array];
         pageNumber = 1;
         
