@@ -159,7 +159,7 @@ static GZMusicHelper *sharedInstance = nil;
 - (void)nextSong
 {
     if (!self.playList.count)
-        NSLog(@"no data");
+        return;
     NSInteger nextIdx = ++self.currentPlayingIdx % self.playList.count;
     [self playAudioItemAtIndex:nextIdx];
 }
