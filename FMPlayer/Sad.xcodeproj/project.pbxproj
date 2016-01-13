@@ -34,6 +34,8 @@
 		8C7AE76C1C4023F0001D729B /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AE7571C4023F0001D729B /* UIProgressView+AFNetworking.m */; };
 		8C7AE76D1C4023F0001D729B /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AE7591C4023F0001D729B /* UIRefreshControl+AFNetworking.m */; };
 		8C7AE76E1C4023F0001D729B /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 8C7AE75B1C4023F0001D729B /* UIWebView+AFNetworking.m */; };
+		8CA968191C453EF600EC8629 /* Stars.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CA968181C453EF600EC8629 /* Stars.png */; };
+		8CA9681B1C453F8800EC8629 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 8CA9681A1C453F8800EC8629 /* background.png */; };
 		8CAB70A01C40A9C90076FAFF /* GTMHTTPFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB70981C40A9C90076FAFF /* GTMHTTPFetcher.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8CAB70A11C40A9C90076FAFF /* GTMOAuthAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB709A1C40A9C90076FAFF /* GTMOAuthAuthentication.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		8CAB70A21C40A9C90076FAFF /* GTMOAuthSignIn.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CAB709C1C40A9C90076FAFF /* GTMOAuthSignIn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -104,6 +106,9 @@
 		8CCC6FC11C3FF60B004AB7BD /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8CCC6FC01C3FF60B004AB7BD /* Images.xcassets */; };
 		8CCC6FC41C3FF60B004AB7BD /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8CCC6FC21C3FF60B004AB7BD /* LaunchScreen.xib */; };
 		8CCC6FD01C3FF60B004AB7BD /* SadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8CCC6FCF1C3FF60B004AB7BD /* SadTests.m */; };
+		959852C51C450DD2003751B7 /* RECommonFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C01C450DD2003751B7 /* RECommonFunctions.m */; };
+		959852C61C450DD2003751B7 /* RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C21C450DD2003751B7 /* RESideMenu.m */; };
+		959852C71C450DD2003751B7 /* UIViewController+RESideMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -169,6 +174,8 @@
 		8C7AE7591C4023F0001D729B /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		8C7AE75A1C4023F0001D729B /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		8C7AE75B1C4023F0001D729B /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		8CA968181C453EF600EC8629 /* Stars.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Stars.png; sourceTree = "<group>"; };
+		8CA9681A1C453F8800EC8629 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		8CAB70971C40A9C90076FAFF /* GTMHTTPFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMHTTPFetcher.h; sourceTree = "<group>"; };
 		8CAB70981C40A9C90076FAFF /* GTMHTTPFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMHTTPFetcher.m; sourceTree = "<group>"; };
 		8CAB70991C40A9C90076FAFF /* GTMOAuthAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMOAuthAuthentication.h; sourceTree = "<group>"; };
@@ -302,6 +309,12 @@
 		8CCC6FC91C3FF60B004AB7BD /* SadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CCC6FCE1C3FF60B004AB7BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8CCC6FCF1C3FF60B004AB7BD /* SadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SadTests.m; sourceTree = "<group>"; };
+		959852BF1C450DD2003751B7 /* RECommonFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RECommonFunctions.h; sourceTree = "<group>"; };
+		959852C01C450DD2003751B7 /* RECommonFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RECommonFunctions.m; sourceTree = "<group>"; };
+		959852C11C450DD2003751B7 /* RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RESideMenu.h; sourceTree = "<group>"; };
+		959852C21C450DD2003751B7 /* RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RESideMenu.m; sourceTree = "<group>"; };
+		959852C31C450DD2003751B7 /* UIViewController+RESideMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RESideMenu.h"; sourceTree = "<group>"; };
+		959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RESideMenu.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -343,6 +356,7 @@
 		8C7AE7131C4016E5001D729B /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				959852BE1C450DD2003751B7 /* RESideMenu */,
 				8CAB715F1C4251810076FAFF /* QuartzCore.framework */,
 				8CAB70FE1C4100B80076FAFF /* MJRefresh */,
 				8CAB70A81C40B8900076FAFF /* DOUAudioStream */,
@@ -535,6 +549,8 @@
 		8CAB70ED1C40E15B0076FAFF /* image */ = {
 			isa = PBXGroup;
 			children = (
+				8CA9681A1C453F8800EC8629 /* background.png */,
+				8CA968181C453EF600EC8629 /* Stars.png */,
 				8CAB714C1C41463A0076FAFF /* thumbImage@2x.png */,
 				8CAB714D1C41463A0076FAFF /* thumbImage@3x.png */,
 				8CAB71421C4115DE0076FAFF /* radio_normal@2x.png */,
@@ -725,6 +741,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		959852BE1C450DD2003751B7 /* RESideMenu */ = {
+			isa = PBXGroup;
+			children = (
+				959852BF1C450DD2003751B7 /* RECommonFunctions.h */,
+				959852C01C450DD2003751B7 /* RECommonFunctions.m */,
+				959852C11C450DD2003751B7 /* RESideMenu.h */,
+				959852C21C450DD2003751B7 /* RESideMenu.m */,
+				959852C31C450DD2003751B7 /* UIViewController+RESideMenu.h */,
+				959852C41C450DD2003751B7 /* UIViewController+RESideMenu.m */,
+			);
+			name = RESideMenu;
+			path = Frameworks/RESideMenu;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -769,7 +799,7 @@
 		8CCC6FA81C3FF60B004AB7BD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0640;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = grozy;
 				TargetAttributes = {
 					8CCC6FAF1C3FF60B004AB7BD = {
@@ -814,6 +844,7 @@
 				8CAB714F1C41463A0076FAFF /* thumbImage@3x.png in Resources */,
 				8CAB71451C4115DE0076FAFF /* radio_normal@3x.png in Resources */,
 				8C7AE75C1C4023F0001D729B /* .cocoadocs.yml in Resources */,
+				8CA9681B1C453F8800EC8629 /* background.png in Resources */,
 				8CCC6FBF1C3FF60B004AB7BD /* Main.storyboard in Resources */,
 				8CAB70F01C40E15B0076FAFF /* default_cover@2x.png in Resources */,
 				8CAB71401C410E770076FAFF /* radio@2x.png in Resources */,
@@ -825,6 +856,7 @@
 				8C7AE75D1C4023F0001D729B /* .gitignore in Resources */,
 				8C7AE75E1C4023F0001D729B /* .travis.yml in Resources */,
 				8CCC6FC11C3FF60B004AB7BD /* Images.xcassets in Resources */,
+				8CA968191C453EF600EC8629 /* Stars.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -859,6 +891,7 @@
 				8C7AE75F1C4023F0001D729B /* AFHTTPSessionManager.m in Sources */,
 				8C7AE7641C4023F0001D729B /* AFURLSessionManager.m in Sources */,
 				8CAB70E01C40B8900076FAFF /* DOUMPMediaLibraryAssetLoader.m in Sources */,
+				959852C71C450DD2003751B7 /* UIViewController+RESideMenu.m in Sources */,
 				8C7AE7691C4023F0001D729B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				8CAB70D61C40B8900076FAFF /* DOUAudioFileProvider.m in Sources */,
 				8CAB70D51C40B8900076FAFF /* DOUAudioFilePreprocessor.m in Sources */,
@@ -883,6 +916,7 @@
 				8CAB71481C4122130076FAFF /* GZMusicPlayerController.m in Sources */,
 				8CAB714B1C41381C0076FAFF /* GZPlayerView.m in Sources */,
 				8CAB70A11C40A9C90076FAFF /* GTMOAuthAuthentication.m in Sources */,
+				959852C51C450DD2003751B7 /* RECommonFunctions.m in Sources */,
 				8C7AE76A1C4023F0001D729B /* UIButton+AFNetworking.m in Sources */,
 				8CAB713D1C4100B80076FAFF /* UIView+MJExtension.m in Sources */,
 				8CAB70DE1C40B8900076FAFF /* DOUAudioVisualizer.m in Sources */,
@@ -900,6 +934,7 @@
 				8CAB71301C4100B80076FAFF /* MJRefreshAutoGifFooter.m in Sources */,
 				8CAB71321C4100B80076FAFF /* MJRefreshAutoStateFooter.m in Sources */,
 				8C7AE7621C4023F0001D729B /* AFURLRequestSerialization.m in Sources */,
+				959852C61C450DD2003751B7 /* RESideMenu.m in Sources */,
 				8C7AE7661C4023F0001D729B /* AFAutoPurgingImageCache.m in Sources */,
 				8CAB71361C4100B80076FAFF /* MJRefreshGifHeader.m in Sources */,
 				8CAB70A21C40A9C90076FAFF /* GTMOAuthSignIn.m in Sources */,
@@ -973,6 +1008,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -1044,6 +1080,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sad/Frameworks/WXApi",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grozy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1059,6 +1096,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Sad/Frameworks/WXApi",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grozy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1078,6 +1116,7 @@
 				);
 				INFOPLIST_FILE = SadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grozy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sad.app/Sad";
 			};
@@ -1093,6 +1132,7 @@
 				);
 				INFOPLIST_FILE = SadTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.grozy.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Sad.app/Sad";
 			};

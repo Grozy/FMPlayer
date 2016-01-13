@@ -24,15 +24,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-    CGFloat kGap = 10.f;
-    CGFloat kHeight = 44.f;
-    button.frame = CGRectMake(kGap, CGRectGetHeight(self.view.frame) - kHeight - kGap, CGRectGetWidth(self.view.frame) - 2 * kGap, kHeight);
-    button.backgroundColor = [UIColor blueColor];
-    [button addTarget:self action:@selector(sendAuthRequest) forControlEvents:UIControlEventTouchUpInside];
     
-    [self.view addSubview:button];
+    
 }
 
 - (void)didReceiveMemoryWarning
